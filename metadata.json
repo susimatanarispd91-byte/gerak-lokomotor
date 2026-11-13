@@ -1,0 +1,6 @@
+{
+  "name": "Petualangan Gerak Lokomotor",
+  "description": "Media pembelajaran interaktif PJOK kelas 1 SD tentang gerak lokomotor bersama kelinci LOKO dengan materi animasi, petunjuk suara bahasa Indonesia, praktik gerak, 4 game edukasi, dan kuis evaluasi.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

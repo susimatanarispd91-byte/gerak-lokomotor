@@ -1,0 +1,118 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-display: 'Outfit', system-ui, sans-serif;
+    --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
+  }
+
+  body {
+    font-family: var(--font-body);
+    background-color: #F6FAFD;
+    color: #0F172A;
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: var(--font-display);
+    text-wrap: balance;
+  }
+}
+
+/* Compositor-only animations for locomotor movements and playful feedback */
+@keyframes walk-leg-a {
+  0%, 100% { transform: rotate(-22deg); }
+  50% { transform: rotate(22deg); }
+}
+
+@keyframes walk-leg-b {
+  0%, 100% { transform: rotate(22deg); }
+  50% { transform: rotate(-22deg); }
+}
+
+@keyframes walk-bob {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-4px); }
+}
+
+@keyframes run-leg-a {
+  0%, 100% { transform: rotate(-42deg); }
+  50% { transform: rotate(42deg); }
+}
+
+@keyframes run-leg-b {
+  0%, 100% { transform: rotate(42deg); }
+  50% { transform: rotate(-42deg); }
+}
+
+@keyframes run-lean {
+  0%, 100% { transform: translateY(0px) rotate(8deg); }
+  50% { transform: translateY(-7px) rotate(11deg); }
+}
+
+@keyframes jump-arc {
+  0%, 100% { transform: translateY(0px) scaleY(0.95); }
+  20% { transform: translateY(4px) scaleY(0.92); }
+  55% { transform: translateY(-34px) scaleY(1.04); }
+  85% { transform: translateY(2px) scaleY(0.96); }
+}
+
+@keyframes hop-two-feet {
+  0%, 100% { transform: translateY(0px) scaleY(0.92); }
+  15% { transform: translateY(5px) scaleY(0.88); }
+  50% { transform: translateY(-36px) scaleY(1.05); }
+  85% { transform: translateY(3px) scaleY(0.93); }
+}
+
+@keyframes tiptoe-step {
+  0%, 100% { transform: translateY(-6px) rotate(-3deg); }
+  50% { transform: translateY(-12px) rotate(3deg); }
+}
+
+@keyframes gallop-body {
+  0%, 100% { transform: translateY(0px) translateX(-6px) rotate(-4deg); }
+  35% { transform: translateY(-18px) translateX(6px) rotate(5deg); }
+  65% { transform: translateY(-4px) translateX(10px) rotate(0deg); }
+}
+
+@keyframes float-gentle {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes star-pop {
+  0% { transform: scale(0.4) rotate(-18deg); opacity: 0; }
+  65% { transform: scale(1.18) rotate(6deg); opacity: 1; }
+  100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+.anim-walk-leg-a { animation: walk-leg-a 0.9s ease-in-out infinite; transform-origin: 50% 0%; }
+.anim-walk-leg-b { animation: walk-leg-b 0.9s ease-in-out infinite; transform-origin: 50% 0%; }
+.anim-walk-bob { animation: walk-bob 0.45s ease-in-out infinite; }
+
+.anim-run-leg-a { animation: run-leg-a 0.45s ease-in-out infinite; transform-origin: 50% 0%; }
+.anim-run-leg-b { animation: run-leg-b 0.45s ease-in-out infinite; transform-origin: 50% 0%; }
+.anim-run-lean { animation: run-lean 0.28s ease-in-out infinite; transform-origin: 50% 60%; }
+
+.anim-jump-arc { animation: jump-arc 1.2s cubic-bezier(0.22, 1, 0.36, 1) infinite; transform-origin: 50% 80%; }
+.anim-hop-two-feet { animation: hop-two-feet 1s cubic-bezier(0.22, 1, 0.36, 1) infinite; transform-origin: 50% 80%; }
+.anim-tiptoe { animation: tiptoe-step 0.8s ease-in-out infinite; transform-origin: 50% 80%; }
+.anim-gallop { animation: gallop-body 0.75s ease-in-out infinite; transform-origin: 50% 70%; }
+.anim-float { animation: float-gentle 3s ease-in-out infinite; }
+.anim-star-pop { animation: star-pop 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+
+@media (prefers-reduced-motion: reduce) {
+  .anim-walk-leg-a,
+  .anim-walk-leg-b,
+  .anim-walk-bob,
+  .anim-run-leg-a,
+  .anim-run-leg-b,
+  .anim-run-lean,
+  .anim-jump-arc,
+  .anim-hop-two-feet,
+  .anim-tiptoe,
+  .anim-gallop,
+  .anim-float,
+  .anim-star-pop {
+    animation: none !important;
+  }
+}
